@@ -48,7 +48,10 @@ interface IBlazor {
     getLazyAssemblies?: any
     dotNetCriticalError?: any
     getSatelliteAssemblies?: any,
-    applyHotReload?: (id: string, metadataDelta: string, ilDelta: string) => void
+    HotReload: {
+      applyDelta?: (id: string, metadataDelta: string, ilDelta: string) => void,
+      getApplyUpdateCapabilities?: () => string
+    }
   }
 }
 
@@ -60,6 +63,7 @@ export const Blazor: IBlazor = {
     navigationManager: navigationManagerInternalFunctions,
     domWrapper: domFunctions,
     Virtualize,
+    HotReload: {}
   },
 };
 
